@@ -71,6 +71,7 @@ NSString *const DPCalendarMonthlyViewAttributeMonthRows = @"DPCalendarMonthlyVie
 @property (nonatomic, strong) UIColor *todayBannerBkgColor;
 @property (nonatomic, strong) UIColor *notInSameMonthColor;
 @property (nonatomic, strong) UIColor *selectedColor;
+@property (nonatomic, strong) UIColor *separatorColor;
 @property (nonatomic, strong) UIColor *highlightedColor;
 
 @property (nonatomic) BOOL isNoInSameMonthCellSeletable;
