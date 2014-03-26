@@ -79,6 +79,7 @@ extern NSString *const DPCalendarMonthlyViewAttributeMonthRows; //A convenient f
 -(void) scrollToMonth:(NSDate *)month complete:(void (^)(void))complete;
 -(void) scrollToPreviousMonthWithComplete:(void (^)(void))complete;
 -(void) scrollToNextMonthWithComplete:(void (^)(void))complete;
+-(void)resetData;
 
 - (NSDate *)firstVisibleDateOfMonth:(NSDate *)date;
 - (NSDate *)lastVisibleDateOfMonth:(NSDate *)date;

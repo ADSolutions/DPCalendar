@@ -572,6 +572,7 @@ NSString *const DPCalendarViewDayCellIdentifier = @"DPCalendarViewDayCellIdentif
     // All data for the documents are stored in an array (documentTitles).
     // We keep track of the index that we are scrolling to so that we
     // know what data to load for each page.
+    _selectedDate = nil;
     if(self.contentOffset.x > self.frame.size.width)
     {
         NSDate *currentMonth = [self.pagingMonths objectAtIndex:2];
@@ -693,11 +694,19 @@ NSString *const DPCalendarViewDayCellIdentifier = @"DPCalendarViewDayCellIdentif
     return NO;
 }
 
+-(void)resetData
+{
+    _selectedDate = nil;
+}
+
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     self.selectedDate = [self dateForCollectionView:collectionView IndexPath:indexPath];
+    
     if ([self.monthlyViewDelegate respondsToSelector:@selector(didSelectItemWithDate:)]) {
-        return [self.monthlyViewDelegate didSelectItemWithDate:self.selectedDate];
+        [self.monthlyViewDelegate didSelectItemWithDate:self.selectedDate];
     }
+    
+    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
 }
 
 @end
